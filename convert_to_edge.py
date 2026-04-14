@@ -48,7 +48,7 @@ def main():
         output_dir=output_dir,
         combine_file_only=False,
         vocab_model_file=vocab_model_file,
-        output_tflite_file=output_tflite_file,
+        output_tflite_file=os.path.join(output_dir, output_tflite_file),
     )
 
     print(f"Converting model from {input_ckpt} to {output_tflite_file}...")
