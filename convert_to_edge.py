@@ -43,7 +43,7 @@ def main():
     config = converter.ConversionConfig(
         input_ckpt=input_ckpt,
         ckpt_format="safetensors", # Assumes safetensors from HF
-        model_type="GEMMA",
+        model_type="GEMMA3_1B",
         backend="gpu",
         output_dir=output_dir,
         combine_file_only=False,
