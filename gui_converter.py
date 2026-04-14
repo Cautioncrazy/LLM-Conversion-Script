@@ -4,6 +4,7 @@ import threading
 import sys
 import os
 import queue
+import traceback
 
 class PrintLogger:
     def __init__(self, message_queue):
@@ -210,6 +211,9 @@ class ConverterGUI:
 
         except Exception as e:
             self.log(f"\nError during conversion: {e}\n")
+            self.log("--- Detailed Traceback ---\n")
+            self.log(traceback.format_exc())
+            self.log("--------------------------\n")
         finally:
             self.conversion_finished()
 
