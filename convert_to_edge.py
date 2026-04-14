@@ -1,5 +1,6 @@
 import sys
 import os
+import traceback
 
 def main():
     try:
@@ -63,6 +64,9 @@ def main():
         print(f"Successfully converted model to {output_tflite_file}")
     except Exception as e:
         print(f"Error during conversion: {e}", file=sys.stderr)
+        print("--- Detailed Traceback ---", file=sys.stderr)
+        traceback.print_exc(file=sys.stderr)
+        print("--------------------------", file=sys.stderr)
         sys.exit(1)
 
 if __name__ == "__main__":
