@@ -10,13 +10,19 @@ This project provides tools to convert a local Gemma 3 1B model into a 4-bit qua
    huggingface-cli download <model-repo-id> --local-dir ./gemma-1b
    ```
 
-2. **Run the Converter**: Execute the conversion script.
+2. **Run the Converter**: You can execute the conversion using either the command line or the graphical interface.
 
+   **Command Line Interface:**
    ```bash
    python convert_to_edge.py
    ```
-
    This will read the model from `./gemma-1b`, apply 4-bit weight quantization, and generate a `gemma3_1b_abliterated.bin` file in the current directory.
+
+   **Graphical Interface (GUI):**
+   ```bash
+   python gui_converter.py
+   ```
+   This will launch a modernized desktop window where you can visually select your input and output directories, adjust conversion settings (like Model Type and Backend), and view the progress logs in real-time.
 
 ## Known Bugs & Limitations
 
