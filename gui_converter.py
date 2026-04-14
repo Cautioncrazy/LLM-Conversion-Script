@@ -66,8 +66,8 @@ class ConverterGUI:
 
         # Model Type
         ttk.Label(config_frame, text="Model Type:").grid(row=3, column=0, sticky=tk.W, pady=5)
-        self.model_type_var = tk.StringVar(value="GEMMA")
-        ttk.Combobox(config_frame, textvariable=self.model_type_var, values=["GEMMA", "GEMMA_2B", "PHI_2", "FALCON_1B", "LLAMA"], state="readonly", width=15).grid(row=3, column=1, padx=10, sticky=tk.W, pady=5)
+        self.model_type_var = tk.StringVar(value="GEMMA_2B")
+        ttk.Combobox(config_frame, textvariable=self.model_type_var, values=["GEMMA_2B", "GEMMA_7B", "PHI_2", "FALCON_1B", "LLAMA"], state="readonly", width=15).grid(row=3, column=1, padx=10, sticky=tk.W, pady=5)
 
         # Checkpoint Format
         ttk.Label(config_frame, text="Checkpoint Format:").grid(row=4, column=0, sticky=tk.W, pady=5)

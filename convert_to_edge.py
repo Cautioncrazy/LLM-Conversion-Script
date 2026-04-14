@@ -43,7 +43,7 @@ def main():
 
     # MediaPipe only supports Gemma models via safetensors checkpoints
     ckpt_format = "safetensors"
-    model_type = "GEMMA"
+    model_type = "GEMMA_2B"
 
     config = converter.ConversionConfig(
         input_ckpt=input_ckpt,
