@@ -185,10 +185,19 @@ class ConverterGUI:
             self.log(f"  Backend: {self.backend_var.get()}\n")
             self.log("\nStarting MediaPipe conversion. This may take a while and require significant memory...\n")
 
+            # MediaPipe only supports Gemma models via safetensors checkpoints
+            ckpt_format = self.ckpt_format_var.get()
+            model_type = self.model_type_var.get()
+            if "GEMMA" in model_type and ckpt_format != "safetensors":
+                self.log(f"Error: MediaPipe currently only supports 'safetensors' format for Gemma models, not '{ckpt_format}'.\n")
+                self.log("Please select 'safetensors' in the Checkpoint Format dropdown.\n")
+                self.conversion_finished()
+                return
+
             config = converter.ConversionConfig(
                 input_ckpt=input_ckpt,
-                ckpt_format=self.ckpt_format_var.get(),
-                model_type=self.model_type_var.get(),
+                ckpt_format=ckpt_format,
+                model_type=model_type,
                 backend=self.backend_var.get(),
                 output_dir=output_dir,
                 combine_file_only=False,

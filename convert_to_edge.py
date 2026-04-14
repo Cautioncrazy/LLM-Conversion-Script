@@ -40,10 +40,14 @@ def main():
     # Using 4-bit quantization as requested, optimized for GPU/NPU
     # backend="gpu" implies 4-bit weight quantization for LLMs in MediaPipe
 
+    # MediaPipe only supports Gemma models via safetensors checkpoints
+    ckpt_format = "safetensors"
+    model_type = "GEMMA3_1B"
+
     config = converter.ConversionConfig(
         input_ckpt=input_ckpt,
-        ckpt_format="safetensors", # Assumes safetensors from HF
-        model_type="GEMMA3_1B",
+        ckpt_format=ckpt_format,
+        model_type=model_type,
         backend="gpu",
         output_dir=output_dir,
         combine_file_only=False,
