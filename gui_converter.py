@@ -193,7 +193,7 @@ class ConverterGUI:
                 output_dir=output_dir,
                 combine_file_only=False,
                 vocab_model_file=vocab_model_file,
-                output_tflite_file=output_tflite_file,
+                output_tflite_file=os.path.join(output_dir, output_tflite_file),
             )
 
             converter.convert_checkpoint(config)
